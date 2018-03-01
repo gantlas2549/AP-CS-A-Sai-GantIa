@@ -2,10 +2,11 @@
  * This class provides a convenient way to test shuffling methods.
  */
 public class Shuffler {
-//s
- private static final int shuffleCount = 1;    
- private static final int valueCount = 4;      
 
+ private static final int shuffleCount = 1;    //The number of shuffles to be implemented.
+ private static final int valueCount = 4;      //The number of values to shuffle.
+
+ //Tests shuffling methods.
  public static void main(String[] args) {
   System.out.println("Results of " + shuffleCount +
          " consecutive perfect shuffles:");
@@ -41,22 +42,25 @@ public class Shuffler {
  }
 
 
+ //Apply a "perfect shuffle" to the argument.
  public static void perfectShuffle(int[] values) {
   int[] temp = new int[values.length];
   int mid = (values.length + 1) / 2;
 
-  int unshuffled = 0;
+  // Interleave elements 0 ... mid-1 with elements mid ... length-1
+  int unshuffledPos = 0;
   int k = 0;
   for ( ; k < mid; k++) {
-   temp[unshuffled] = values[k];
-   unshuffled += 2;
+   temp[unshuffledPos] = values[k];
+   unshuffledPos += 2;
   }
-  unshuffled = 1;
+  unshuffledPos = 1;
   for ( ; k < values.length; k++) {
-   temp[unshuffled] = values[k];
-   unshuffled += 2;
+   temp[unshuffledPos] = values[k];
+   unshuffledPos += 2;
   }
 
+  // Copy elements back to values
   for (k = 0; k < values.length; k++) {
    values[k] = temp[k];
   }

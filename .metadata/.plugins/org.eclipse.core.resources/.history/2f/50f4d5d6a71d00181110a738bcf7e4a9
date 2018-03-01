@@ -2,7 +2,7 @@
  * This is a class that tests the Card class.
  */
 public class CardTester {
-//s
+
  public static void main(String[] args) {
   Card one = new Card("3", "Hearts", 3);
   Card two = new Card("2", "Spades",3);
