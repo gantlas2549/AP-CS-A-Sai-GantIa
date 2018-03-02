@@ -1,4 +1,5 @@
 import java.util.List;
+import java.lang.Math;
 import java.util.ArrayList;
 //s
 /**
@@ -11,14 +12,14 @@ public class Deck {
  /**
   * cards contains all the cards in the deck.
   */
- private List<Card> cards;
+ private Card[] cards;
 
  /**
   * size is the number of not-yet-dealt cards.
   * Cards are dealt from the top (highest index) down.
   * The next card to be dealt is at size - 1.
   */
- private int length;
+ private int size;
 
 
  /**
@@ -30,14 +31,14 @@ public class Deck {
   * @param values is an array containing all of the card point values.
   */
  public Deck(String[] ranks, String[] suits, int[] values) {
-  cards = new ArrayList<Card>();
+  Card[] cards = new Card[ranks.length*suits.length];
   for (int j = 0; j < ranks.length; j++) {
-   for (String suitString : suits) {
-    cards.add(new Card(ranks[j], suitString, values[j]));
+   for (int i = 0; i < suits.length; i++) {
+    cards[j*suits.length+i] = new Card(ranks[j], suits[i],values[j]);
    }
   }
-  length = cards.length();
-   mix();
+  size = cards.length;
+  //shuffle();
  }
 
 
@@ -46,11 +47,18 @@ public class Deck {
   * @return true if this deck is empty, false otherwise.
   */
  public boolean isEmpty() {
-  return length == 0;
+  if (size == 0)
+  {
+	  return true;
+  }
+  else
+  {
+  return false;
+  }
  }
 
- public int length() {
-  return length;
+ public int size() {
+  return size;
  }
  	
 
@@ -58,28 +66,33 @@ public class Deck {
   * Randomly permute the given collection of cards
   * and reset the size to represent the entire deck.
   */
- public void mix() {
-   for(int k = valueCount - 1; k >= 0; k--) {
-            int r = (int)(Math.random() * k);    
-            int temp = values[r];
-            values[r] = values[k];
-            values[k] = temp;         
-        }
- }
+ //public void shuffle() {
+	// for (int k = cards.length - 1; k > 0; k--) {
+		//	int howMany = k + 1;
+		//	int start = 0;
+	//		int randPos = (int) (Math.random() * howMany) + start;
+	//		Card temp = cards[k];
+	//		cards[(k, cards[randPos])];
+	//		cards[(randPos, temp)];
+	//	}
+	//	size = cards.size();
+ 	 
+ //}
 
  /**
   * Deals a card from this deck.
   * @return the card just dealt, or null if all the cards have been
   *         previously dealt.
   */
- public Card deal() {
-  if (isEmpty()) {
-   return null;
-  }
-  length--;
-  Card c = cards.get(length);
-  return c;
- }
+// public Card deal() {
+  //if (isEmpty()) {
+   //return null;
+  //}
+  //size--;
+  //System.out.println(size);
+  //Card c = cards[size];
+  //return c;
+ //}
 
  /**
   * Generates and returns a string representation of this deck.
@@ -87,25 +100,25 @@ public class Deck {
   */
  @Override
  public String toString() {
-  String rtn = "length = " + length + "\nUndealt cards: \n";
+  String rtn = "length = " + size + "\nUndealt cards: \n";
 
-  for (int k = length - 1; k >= 0; k--) {
-   rtn = rtn + cards.get(k);
+  for (int k = size - 1; k >= 0; k--) {
+   rtn = rtn + cards[k];
    if (k != 0) {
     rtn = rtn + ", ";
    }
-   if ((length - k) % 2 == 0) {
+   if ((size - k) % 2 == 0) {
     rtn = rtn + "\n";
    }
   }
 
   rtn = rtn + "\nDealt cards: \n";
-  for (int k = cards.length() - 1; k >= length; k--) {
-   rtn = rtn + cards.get(k);
-   if (k != length) {
+  for (int k = cards.length - 1; k >= size; k--) {
+   rtn = rtn + cards[k];
+   if (k != cards.length) {
     rtn = rtn + ", ";
    }
-   if ((k - cards.length()) % 2 == 0) {
+   if ((k - cards.length) % 2 == 0) {
     rtn = rtn + "\n";
    }
   }
