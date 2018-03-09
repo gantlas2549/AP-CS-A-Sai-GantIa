@@ -8,7 +8,7 @@ public class Card {
   private String suit;     
   private String rank;     
   private int pointValue;  
-  
+  //this is a new comment
   public Card(String cardRank, String cardSuit, int cardPointValue) {
     suit = cardSuit;
     rank = cardRank;
