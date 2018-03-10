@@ -4,13 +4,14 @@
 //Class -
 //Lab  -
 
-public class Lab14d
+import static java.lang.System.*;
+
+public class Lab16d
 {
 	public static void main( String args[] )
 	{
-		//add test cases
-		
-		
-		
+		//make a new MadLib
+		MadLib angry = new MadLib();
+		out.println("\n");
 	}
 }
