@@ -2,33 +2,51 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="isRegEx"/>
-		<item value="Shuffle" key="selection"/>
+		<item value="splitMad" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="shuffle"/>
-			<item value="size"/>
-			<item value="unshuffledpos"/>
-			<item value="valueCount"/>
-			<item value="mix"/>
-			<item value=" shuffle"/>
-			<item value=" cards"/>
-			<item value="cards"/>
+			<item value="splitStory"/>
+			<item value="fileStory"/>
+			<item value="story"/>
+			<item value="newStory"/>
+			<item value="oldStory"/>
+			<item value="first"/>
+			<item value="old"/>
+			<item value="fileAdjs"/>
+			<item value="fileVerbs"/>
+			<item value="fileNouns"/>
+			<item value="D:"/>
+			<item value="test3"/>
+			<item value="test2"/>
+			<item value="test1"/>
+			<item value="fName"/>
 		</list>
 		<list key="replacehistory">
+			<item value="splitMad"/>
+			<item value="fileMad"/>
+			<item value="second"/>
+			<item value="first"/>
+			<item value="theAdjs"/>
+			<item value="theVerbs"/>
+			<item value="theNouns"/>
+			<item value="history3"/>
+			<item value="history2"/>
+			<item value="history1"/>
+			<item value="file"/>
+			<item value="chars"/>
+			<item value="vals"/>
 			<item value="length"/>
 			<item value="unshuffled"/>
-			<item value="mix"/>
-			<item value=" mix"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="284" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="826" key="DIALOG_X_ORIGIN"/>
-		<item value="268" key="DIALOG_Y_ORIGIN"/>
+		<item value="385" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="523" key="DIALOG_HEIGHT"/>
+		<item value="1059" key="DIALOG_X_ORIGIN"/>
+		<item value="180" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
