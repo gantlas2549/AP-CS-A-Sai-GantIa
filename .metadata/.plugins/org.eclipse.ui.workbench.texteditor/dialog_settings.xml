@@ -2,44 +2,44 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="isRegEx"/>
-		<item value="splitMad" key="selection"/>
+		<item value="l " key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="k "/>
+			<item value="VALUE_COUNT"/>
+			<item value="SHUFFLE_COUNT"/>
+			<item value="deck"/>
+			<item value="d "/>
+			<item value="d"/>
+			<item value="temp"/>
+			<item value="randInt"/>
+			<item value="rtn"/>
+			<item value="return"/>
+			<item value="cardnumber"/>
+			<item value="rank"/>
+			<item value="number"/>
 			<item value="splitStory"/>
 			<item value="fileStory"/>
-			<item value="story"/>
-			<item value="newStory"/>
-			<item value="oldStory"/>
-			<item value="first"/>
-			<item value="old"/>
-			<item value="fileAdjs"/>
-			<item value="fileVerbs"/>
-			<item value="fileNouns"/>
-			<item value="D:"/>
-			<item value="test3"/>
-			<item value="test2"/>
-			<item value="test1"/>
-			<item value="fName"/>
 		</list>
 		<list key="replacehistory">
+			<item value="l "/>
+			<item value="valueCount"/>
+			<item value="shuffleCount"/>
+			<item value="deck "/>
+			<item value="deck"/>
+			<item value="tmp"/>
+			<item value="random"/>
+			<item value="retrn"/>
+			<item value="cardNumber"/>
+			<item value="number"/>
 			<item value="splitMad"/>
 			<item value="fileMad"/>
 			<item value="second"/>
 			<item value="first"/>
 			<item value="theAdjs"/>
-			<item value="theVerbs"/>
-			<item value="theNouns"/>
-			<item value="history3"/>
-			<item value="history2"/>
-			<item value="history1"/>
-			<item value="file"/>
-			<item value="chars"/>
-			<item value="vals"/>
-			<item value="length"/>
-			<item value="unshuffled"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
