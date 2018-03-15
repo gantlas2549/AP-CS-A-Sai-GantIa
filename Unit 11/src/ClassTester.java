@@ -28,6 +28,7 @@ public class ClassTester
 		out.println("Failure List = " + test.getFailureList(70));	
 		out.println("Highest Average = " + test.getStudentWithHighestAverage());
 		out.println("Lowest Average = " + test.getStudentWithLowestAverage());
+		test.sort();
 								
 		out.println(String.format("Class Average = %.2f",test.getClassAverage()));									
 	}		
