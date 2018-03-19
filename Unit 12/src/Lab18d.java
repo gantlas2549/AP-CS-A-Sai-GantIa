@@ -34,7 +34,16 @@ public class Lab18d
 		}
 	}
 
-Arrays.sort(sarray);
+		for (int i=0;i<sarray.length;i++) {
+			for (int y=0;y<sarray.length-1;y++) {
+				if (sarray[y].compareTo(sarray[y+1]) > 0) {
+					Word18e temp = sarray[y];
+					sarray[y] = sarray[y+1];
+					sarray[y+1] = temp;
+				}
+			}
+		}
+			
 for (int y=0;y<size;y++) {
 	out.println(sarray[y]);
 	
