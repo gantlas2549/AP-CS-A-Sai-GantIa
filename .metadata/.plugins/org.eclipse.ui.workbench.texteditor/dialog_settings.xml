@@ -2,29 +2,33 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="isRegEx"/>
-		<item value="l " key="selection"/>
+		<item value="length()" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="size()"/>
+			<item value="class"/>
+			<item value="className"/>
+			<item value="c"/>
+			<item value="classnum"/>
+			<item value="num"/>
+			<item value="userclass"/>
+			<item value="classname"/>
+			<item value="name"/>
+			<item value="pub"/>
 			<item value="k "/>
 			<item value="VALUE_COUNT"/>
 			<item value="SHUFFLE_COUNT"/>
 			<item value="deck"/>
 			<item value="d "/>
-			<item value="d"/>
-			<item value="temp"/>
-			<item value="randInt"/>
-			<item value="rtn"/>
-			<item value="return"/>
-			<item value="cardnumber"/>
-			<item value="rank"/>
-			<item value="number"/>
-			<item value="splitStory"/>
-			<item value="fileStory"/>
 		</list>
 		<list key="replacehistory">
+			<item value="length()"/>
+			<item value="name"/>
+			<item value="num"/>
+			<item value="classUse"/>
 			<item value="l "/>
 			<item value="valueCount"/>
 			<item value="shuffleCount"/>
@@ -36,10 +40,6 @@
 			<item value="cardNumber"/>
 			<item value="number"/>
 			<item value="splitMad"/>
-			<item value="fileMad"/>
-			<item value="second"/>
-			<item value="first"/>
-			<item value="theAdjs"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
