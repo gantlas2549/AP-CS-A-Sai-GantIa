@@ -37,7 +37,7 @@ public class Lab18d
 		for (int i=0;i<sarray.length;i++) {
 			for (int y=0;y<sarray.length-1;y++) {
 				if (sarray[y].compareTo(sarray[y+1]) > 0) {
-					Word18e temp = sarray[y];
+					Word temp = sarray[y];
 					sarray[y] = sarray[y+1];
 					sarray[y+1] = temp;
 				}
