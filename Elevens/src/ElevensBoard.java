@@ -53,9 +53,19 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
-		return containsPairSum11(selectedCards) || containsJQK(selectedCards);
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		if (selectedCards.size() == 2) {
+            return containsPairSum11(selectedCards);
+        }
+        else if (selectedCards.size() == 3) {
+            return containsJQK(selectedCards);
+        }
+        else {
+        	return false;
+        }
 	}
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+	
 
 	/**
 	 * Determine if there are any legal plays left on the board.
@@ -67,9 +77,12 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean anotherPlayIsPossible() {
-		List<Integer> boardCards = cardIndexes();
-		return isLegal(boardCards);
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		List<Integer> boardCards = cardIndexes();
+        if (containsPairSum11(boardCards) == false) {
+            return containsJQK(boardCards);
+        }
+        return true;
 	}
 	
 	/**
@@ -80,18 +93,18 @@ public class ElevensBoard extends Board {
 	 * @return true if the board entries in selectedCards
 	 *              contain an 11-pair; false otherwise.
 	 */
-	private boolean containsPairSum11(List<Integer> selectedCards) 
-	{
-		for (int i = 0; i <selectedCards.size()-1; i++) {
-				if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(i+1)).pointValue() == 11) {
-					return true;
-				}
-		
-		}
-		return false;
+	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+	
+        for (int i = 0; i < selectedCards.size() - 1; i++) {
+            for (int y = i + 1; y < selectedCards.size(); y++) {
+                if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(y)).pointValue() == 11) {
+                    return true;
+                }
+            }
+        }
+        return false;
 	}
-
 	/**
 	 * Check for a JQK in the selected cards.
 	 * @param selectedCards selects a subset of this board.  It is list
@@ -101,32 +114,22 @@ public class ElevensBoard extends Board {
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
-		boolean J = false;
-		boolean Q = false;
-		boolean K = false;
-		for (int i = 0; i <selectedCards.size(); i++) {
-			if (cardAt(selectedCards.get(i)).rank().equals("jack"))
-				J = true;	
-			
-			if (cardAt(selectedCards.get(i)).rank().equals("queen"))
-				Q = true;
-			
-			if (cardAt(selectedCards.get(i)).rank().equals("king")) 
-				K = true;
-		}
-		if (J == false) {
-			return false;
-		}
-		if (Q == false) {
-			return false;
-		}
-		if (K == false) {
-			return false;
-		}
-		else {
-			return true;
-		}
-		
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		boolean J = false;
+        boolean Q = false;
+        boolean K = false;        
+        for (int i = 0; i < selectedCards.size(); i++) {
+            if (cardAt(selectedCards.get(i)).rank() == "jack") {
+                J = true;
+            }
+            else if (cardAt(selectedCards.get(i)).rank() == "queen") {
+                Q = true;
+            }
+            else if (cardAt(selectedCards.get(i)).rank() == "king") {
+                K = true;
+            }
+        }
+        return (J && Q && K);
 	}
 }
+/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
