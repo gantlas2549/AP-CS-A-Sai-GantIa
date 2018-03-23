@@ -64,7 +64,6 @@ public class ElevensBoard extends Board {
         	return false;
         }
 	}
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 	
 
 	/**
@@ -132,4 +131,3 @@ public class ElevensBoard extends Board {
         return (J && Q && K);
 	}
 }
-/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
