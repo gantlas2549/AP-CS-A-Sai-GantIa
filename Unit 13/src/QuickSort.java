@@ -12,25 +12,19 @@ public class QuickSort
 	private static int passCount;
 
 	public static void quickSort(Comparable[] list)
-	{
-		
+	{		
+		System.out.println("pass 0 "+ Arrays.toString(list));
 		passCount = 0;
 		quickSort(list, 0, list.length-1);
 	}	
-
-
 	private static void quickSort(Comparable[] list, int low, int high)
 	{
 		if(low < high){
 			int s = partition(list, low, high);
 			quickSort(list, low, s);
 			quickSort(list, s+1, high);
-		}
-		
-		
+		}			
 	}
-
-
 	private static int partition(Comparable[] list, int low, int high)
 	{
 
