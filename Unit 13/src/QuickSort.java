@@ -21,6 +21,8 @@ public class QuickSort
 	{
 		if(low < high){
 			int s = partition(list, low, high);
+			passCount++;
+			System.out.println("pass "+passCount +" "+Arrays.toString(list));
 			quickSort(list, low, s);
 			quickSort(list, s+1, high);
 		}			
@@ -47,8 +49,6 @@ public class QuickSort
 			Comparable temp = list[bot];
 			list[bot] = list[top];
 			list[top] = temp;
-			passCount++;
-			System.out.println("pass " + passCount + " " + Arrays.toString(list));
 		}
 	}
 }
