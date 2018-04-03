@@ -1,9 +1,3 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -16,97 +10,105 @@ public class Block implements Locatable
 
 	private Color color;
 
-	public Block (){
-		xPos = 100;
-		yPos = 150;
-		width = 10;
-		height = 10;
-		color = Color.BLACK;
-	}
-	//add other Block constructors - x , y , width, height, color
-	public Block(int x, int y){
-		xPos = x;
-		yPos = y;
-	}
-	public Block(int x, int y, int w, int h)
+	public Block()
 	{
-		xPos = x;
-		yPos = y;
-		width = w;
-		height = h;
-		color = Color.BLACK;
+		setPos(100, 150);
+		setWidth(10);
+		setHeight(10);
+		setColor(Color.BLACK);
 	}
-	public Block (int x, int y, int w, int h, Color c)
-	{
-		xPos = x;
-		yPos = y;
-		width = w;
-		height = h;
-		color = c;
+	
+	public Block(int x, int y) {
+		setPos(x, y);
+		setWidth(10);
+		setHeight(10);
+		setColor(Color.BLACK);
 	}
-   //add the other set methods
+	
+	public Block(int x, int y, int w, int h) {
+		setPos(x, y);
+		setWidth(w);
+		setHeight(h);
+		setColor(Color.BLACK);
+	}
+	
+	public Block(int x, int y, int w, int h, Color col) {
+		setPos(x, y);
+		setWidth(w);
+		setHeight(h);
+		setColor(col);
+	}
+	
+	//SET METHODS
 	public void setPos(int x, int y) {
-		setX(x);
-		setY(y);
-	}
-	public void setX(int x) {
-		xPos = x;
-	}
-	public void setY(int y) {
-		yPos = y;
-	}
-	public void setWidth(int w){
+	   xPos = x;
+	   yPos = y;
+   	}
+   
+   	public void setX(int x) { 
+	   xPos = x;
+   	}
+   
+   	public void setY(int y) {
+	   yPos = y;
+   	}
+
+	public void setWidth(int w) {
 		width = w;
 	}
-	public void setHeight(int h){
+
+	public void setHeight(int h) {
 		height = h;
 	}
-	public void setColor(Color col){
-		color = col;
-	}
 
-   public void draw(Graphics window)
-   {
-   	//uncomment after you write the set and get methods
-      window.setColor(color);
-      window.fillRect(getX(), getY(), getWidth(), getHeight());
-   }
+	public void setColor(Color col)
+   	{
+   		color = col;
+   	}
 
-   public void draw(Graphics window, Color col)
-   {
-	   window.setColor(col);
-	   window.fillRect(getX(), getY(), getWidth(), getHeight());
-   }
-   
-	public boolean equals(Object obj)
-	{
-		if (((Block) obj).getX() == getX() && ((Block)obj).getY() == getY() && ((Block)obj).getWidth() == getWidth() && ((Block)obj).getHeight() == getHeight() && ((Block)obj).getColor() == getColor()){
-			return true;
-		}
-		return false;
-	}   
+   	//GET METHODS
+   	public int getX() {
+   		return xPos;
+   	}
+   	
+   	public int getY() {
+   		return yPos;
+   	}
 
-   //add the other get methods
-	public int getX() {
-		return xPos;
-	}
-	public int getY() {
-		return yPos;
-	}
-	public int getWidth(){
+	public int getWidth() {
 		return width;
 	}
-	public int getHeight(){
+
+   	public int getHeight() {
 		return height;
 	}
-	public Color getColor(){
-		return color;
-	}
+   	
+   	public Color getColor() {
+   		return color;
+   	}
+	
+   	//OTHER METHODS
+   	public void draw(Graphics window)
+   	{
+   		window.setColor(color);
+   		window.fillRect(getX(), getY(), getWidth(), getHeight());
+   	}
 
-   //add a toString() method  - x , y , width, height, color
-	public String toString(){
-		String output = "";
-		output += getX() + " " + getY() + " " + width + " " + height + " " + color;
-		return output;
+    public void draw(Graphics window, Color col)
+    {
+    	window.setColor(col);
+   		window.fillRect(getX(), getY(), getWidth(), getHeight());
+    }
+   
+   	public boolean equals(Object obj)
+	{
+   		Block other = (Block) obj;
+   		return this.getX() == other.getX() && this.getY() == other.getY()
+   				&& this.getWidth() == other.getWidth() 
+   				&& this.getHeight() == other.getHeight();
 	}
+   	
+   	public String toString() {
+   		return getX() +" "+ getY() +" "+ getWidth() +" "+ getHeight() +" "+ getColor();
+   	}
 }
