@@ -1,3 +1,9 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -13,23 +19,16 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 {
 	private Ball ball;
 	private Paddle leftPaddle;
-	private Paddle rightPaddle;
 	private boolean[] keys;		//keeps track of what keys are pressed
 
 	public PaddleTestTwo()
 	{
-		//set up all game variables
-
-		//instantiate a Ball
 		ball = new Ball();
+		leftPaddle = new Paddle(10,250,10,50,4);
 
-		//instantiate a left Paddle
-		leftPaddle = new Paddle();
 
-		//instantiate a right Paddle
-		rightPaddle = new Paddle(540,0,20,80,Color.RED,5);
+		keys = new boolean[4];
 
-		keys = new boolean[5];
 
 		//set up the Canvas
 		setBackground(Color.WHITE);
@@ -48,7 +47,6 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 	{
 		ball.moveAndDraw(window);
 		leftPaddle.draw(window);
-		rightPaddle.draw(window);
 
 		if(!(ball.getX()>=10 && ball.getX()<=550))
 		{
@@ -70,14 +68,6 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 			//move left paddle down and draw it on the window
 			leftPaddle.moveDownAndDraw(window);
 
-		}
-		if(keys[2] == true)
-		{
-			rightPaddle.moveUpAndDraw(window);
-		}
-		if(keys[3] == true)
-		{
-			rightPaddle.moveDownAndDraw(window);
 		}
 	}
 
@@ -108,17 +98,18 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 		//no code needed here
 	}
 	
-   public void run()
-   {
-   	try
-   	{
-   		while(true)
-   		{
-   		   Thread.currentThread().sleep(8);
-            repaint();
-         }
-      }catch(Exception e)
-      {
-      }
+	public void run()
+	{
+		try
+			{
+			while(true)
+			{
+				Thread.currentThread();
+				Thread.sleep(8);
+				repaint();
+			}
+		} catch(Exception e) {
+			System.out.println("oops");
+		}
   	}		
 }

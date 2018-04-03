@@ -1,5 +1,4 @@
-public interface Collidable
-{
+public interface Collidable {
 	boolean didCollideLeft(Object obj);
 	boolean didCollideRight(Object obj);
 	boolean didCollideTop(Object obj);

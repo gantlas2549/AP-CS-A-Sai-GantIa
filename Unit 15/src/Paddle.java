@@ -1,100 +1,79 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-
-
 public class Paddle extends Block
 {
-	private int speed;
-	private int cSpeed;
+   //instance variables
+   private int speed;
 
-	public Paddle()
-	{
-		super(10,10);
-		setSpeed(5);
-	}
+   public Paddle()
+   {
+	   super(10,10);
+      speed = 5;
+      setWidth(20);
+      setHeight(80);
+      setColor(Color.RED);
+   }
+   //add the other Paddle constructors
+   public Paddle(int x, int y){
+	   super(x,y);
+	   setWidth(10);
+	   setHeight(10);
+	   setColor(Color.BLACK);
+	   speed = 5;
+   }
+   public Paddle (int x, int y, int s){
+	   super(x,y);
+	   speed = s;
+	   setWidth(10);
+	   setHeight(10);
+	   setColor(Color.BLACK);
+   }
+   public Paddle(int x, int y, int w, int h){
+	   super(x,y,w,h);
+   }
+   public Paddle(int x, int y, int w, int h, int s){
+	   super(x,y,w,h);
+	   speed = s;
+	   setColor(Color.BLACK);
+   }
+   public Paddle(int x, int y, int w, int h, Color c, int s){
+	   super(x,y,w,h,c);
+	   speed = s;
+   }
+   public void moveUpAndDraw(Graphics window)
+   {
+	   draw(window, Color.WHITE);
+	   setY(getY() - speed);
+	   draw(window);
+   }
 
-	public Paddle(int x, int y) {
-		super(x, y);
-		setSpeed(5);
-	}
-	
-	public Paddle(int x, int y, int s) {
-		super(x, y);
-		setSpeed(s);
-	}
-	
-	public Paddle(int x, int y, int w, int h, int s) {
-		super(x, y, w, h);
-		setSpeed(s);
-	}
-	
-	public Paddle(int x, int y, int w, int h, Color col, int s) {
-		super(x, y, w, h, col);
-		setSpeed(s);
-	}
+   public void moveDownAndDraw(Graphics window)
+   {
+	   draw(window, Color.WHITE);
+	   setY(getY() + speed);
+	   draw(window);
+   }
+   public void moveLeftAndDraw(Graphics window){
+	   draw(window,Color.WHITE);
+	   setX(getX()-speed);
+	   draw(window);
+   }
+   public void moveRightAndDraw(Graphics window){
+	   draw(window,Color.WHITE);
+	   setX(getX()+speed);
+	   draw(window);
+   }
 
-
-	//SET METHODS
-	public void setSpeed(int s) {
-		speed = s;
-	}
-	
-	public void setcSpeed(int s) {
-		cSpeed = s;
-	}
-	
-	//GET METHODS
-	public int getSpeed() {
-		return speed;
-	}
-	
-	public int getcSpeed() {
-		return cSpeed;
-	}
-
-	//DRAWING
-	public void moveUpAndDraw(Graphics window)
-	{
-		setcSpeed(-Math.abs(getSpeed()));		
-		Color temp = getColor();
-		draw(window, Color.WHITE);
-		setY(getY()+cSpeed);
-		draw(window, temp);
-	}
-	
-	public void moveNothing(Graphics window)
-	{
-		setcSpeed(0);
-	}
-	
-	public void moveDownAndDraw(Graphics window)
-	{
-		setcSpeed(Math.abs(getSpeed()));
-		Color temp = getColor();
-		draw(window, Color.WHITE);
-		setY(getY()+cSpeed);
-		draw(window, temp);
-	}
-	
-	public boolean equals(Object obj)
-	{
-   		Paddle other = (Paddle) obj;
-   		return super.equals(other) 
-				&& this.getSpeed() == other.getSpeed();	
-	}
-
-	public boolean didCollideTop(Object obj) {
-		Wall other = (Wall) obj;
-		return this.getY() <= other.getTop();
-	}
-
-	public boolean didCollideBottom(Object obj) {
-		Wall other = (Wall) obj;
-		return this.getY()+this.getHeight() >= other.getBottom();
-	}
-	   
-	public String toString() {
-		return super.toString() +" "+ getSpeed();
-	}
+   //add get methods
+   public int getSpeed(){
+	   return speed;
+   }
+   
+   //add a toString() method
+   public String toString(){
+	   String output ="";
+	   output += getX() + " " + getY() + " " + getWidth() + " " + getHeight() + " " + getColor() + " " + getSpeed();
+	   return output;
+   }
 }

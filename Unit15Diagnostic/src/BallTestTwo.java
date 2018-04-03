@@ -1,3 +1,9 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -12,9 +18,20 @@ class BallTestTwo extends Canvas implements Runnable
 	public BallTestTwo()
 	{
 		setBackground(Color.WHITE);
-		setVisible(true);
+		setVisible(true);ball = new Ball();
+		ball = new Ball(100,90);
+		ball = new Ball(100,100,30,50);
+		ball = new Ball(100,100,30,50,Color.GREEN);
+		ball = new Ball(100,100,30,50,Color.GREEN,5,6);
+		
 
-		ball = new Ball();
+		//instantiate a new Ball
+
+		//test the Ball thoroughly
+		
+
+		//test all constructors
+
 
 		new Thread(this).start();
 	}
