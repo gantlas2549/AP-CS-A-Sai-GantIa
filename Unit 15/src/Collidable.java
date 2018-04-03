@@ -1,36 +1,7 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Canvas;
-
-public class Collidable extends Canvas
+public interface Collidable
 {
-	public Collidable()
-	{
-		setBackground(Color.WHITE);
-	}
-
-	public void paint(Graphics window)
-	{
-		Block one = new Block();
-		one.draw(window);
-
-		Block two = new Block(50,50,30,30);
-		two.draw(window);
-
-		Block three = new Block(350,350,15,15,Color.RED);
-		three.draw(window);
-
-		//two.draw(window, Color.white);
-
-		Block four = new Block(450,50,20,60, Color.GREEN);
-		four.draw(window);
-		
-		//add more test cases			
-	}
+	boolean didCollideLeft(Object obj);
+	boolean didCollideRight(Object obj);
+	boolean didCollideTop(Object obj);
+	boolean didCollideBottom(Object obj);
 }

@@ -18,18 +18,30 @@ import java.awt.event.ActionListener;
 public class Pong extends Canvas implements KeyListener, Runnable
 {
 	private Ball ball;
+//	private BlinkyBall ball;
+//	private SpeedUpBall ball;
+	
 	private Paddle leftPaddle;
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
+	private int rightscore;
+	private int leftscore;
 
 
 	public Pong()
 	{
 		//set up all variables related to the game
+		
+		
+		ball = new Ball(600,200,10,10,Color.BLUE,3,2);
+//		ball = new BlinkyBall(600,200,10,10,Color.BLUE,2,1);
+//		ball = new SpeedUpBall(600,200,10,10,Color.BLUE,2,1);
 
-
-
+		leftPaddle = new Paddle(50,200,20,70,Color.RED,5);
+		rightPaddle = new Paddle(700,200,20,70,Color.RED,5);
+		rightscore = 0;
+		leftscore = 0;
 
 		keys = new boolean[4];
 
@@ -63,48 +75,83 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		ball.moveAndDraw(graphToBack);
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
-
+		graphToBack.setColor(Color.BLUE);
+		graphToBack.drawString("SCOREBOARD",350,80);
 
 		//see if ball hits left wall or right wall
 		if(!(ball.getX()>=10 && ball.getX()<=780))
 		{
 			ball.setXSpeed(0);
 			ball.setYSpeed(0);
+			
+			if (ball.getX() <= 10){
+				rightscore = rightscore + 1;
+			}
+			if (ball.getX() >= 780){
+				leftscore = leftscore + 1;
+			}
+			graphToBack.setColor(Color.WHITE);
+			graphToBack.drawString("Left: " + (leftscore-1), 350, 100);
+			graphToBack.drawString("Right: " + (rightscore-1), 350, 120);
+			graphToBack.setColor(Color.BLUE);
+			graphToBack.drawString("Left: " + leftscore, 350, 100);
+			graphToBack.drawString("Right: " + rightscore, 350, 120);
+			
+			ball.draw(graphToBack,Color.WHITE);
+			ball.setX(400);
+			ball.setY(300);
+			ball.setColor(Color.BLUE);
+			ball.setXSpeed(3);
+			ball.setYSpeed(2);
 		}
 
-		
-		//see if the ball hits the top or bottom wall 
-
-
-
-
-		//see if the ball hits the left paddle
-		
-		
-		
-		//see if the ball hits the right paddle
-		
-		
-		
-
-
+		if (ball.didCollideLeft(leftPaddle)|| ball.didCollideRight(rightPaddle)){
+			ball.setXSpeed(-ball.getXSpeed());
+			
+			
+//			ball.setXSpeed(ball.getXSpeed());
+//			ball.setYSpeed(ball.getYSpeed());
+		}
+		if (ball.getY() < 30 || ball.getY() > 550){
+			ball.setYSpeed(-ball.getYSpeed());
+			
+//			ball.setXSpeed(ball.getXSpeed());
+//			ball.setYSpeed(ball.getYSpeed());
+		}
+		else if (ball.didCollideTop(leftPaddle) || ball.didCollideBottom(leftPaddle)){
+			ball.setYSpeed(-ball.getYSpeed());
+			ball.setXSpeed(-ball.getXSpeed());
+			
+			
+//			ball.setXSpeed(ball.getXSpeed());
+//			ball.setYSpeed(ball.getYSpeed());
+		}
+		else if (ball.didCollideTop(rightPaddle) || ball.didCollideBottom(rightPaddle)){
+			ball.setYSpeed(-ball.getYSpeed());
+			ball.setXSpeed(-ball.getXSpeed());
+			
+//			ball.setXSpeed(ball.getXSpeed());
+//			ball.setYSpeed(ball.getYSpeed());
+		}
 		//see if the paddles need to be moved
 
+		if(keys[0] == true)
+		{
+			leftPaddle.moveUpAndDraw(graphToBack);
+		}
+		if(keys[1] == true)
+		{
+			leftPaddle.moveDownAndDraw(graphToBack);
+		}
+		if(keys[2] == true)
+		{
+			rightPaddle.moveUpAndDraw(graphToBack);
+		}
+		if(keys[3] == true)
+		{
+			rightPaddle.moveDownAndDraw(graphToBack);
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 

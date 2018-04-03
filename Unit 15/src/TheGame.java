@@ -20,7 +20,7 @@ public class TheGame extends JFrame
 		Pong game = new Pong();
 		
 		((Component)game).setFocusable(true);			
-		getContentPane().add(game);
+		getContentPane().add(game);	
 						
 		setVisible(true);
 	}
