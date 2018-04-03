@@ -1,11 +1,18 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
+
+//unused class
 class SpeedUpBall extends Ball
 {
 
-   //instance variables
 
    public SpeedUpBall()
    {

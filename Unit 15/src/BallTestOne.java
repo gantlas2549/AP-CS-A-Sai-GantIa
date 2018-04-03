@@ -1,3 +1,9 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
 import static java.lang.System.*;
 import java.awt.Color;
 
@@ -20,7 +26,6 @@ class BallTestOne
 		Ball five = new Ball(100,100,30,50,Color.BLUE,5,6);
 		out.println(five);
 		
-									//x, y, wid, ht, color, xSpd, ySpd
 		Ball six = new Ball(100,100,30,50,Color.blue,5,6);
 		out.println(six);		
 		

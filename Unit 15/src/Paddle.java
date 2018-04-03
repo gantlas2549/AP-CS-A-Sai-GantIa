@@ -1,9 +1,14 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Paddle extends Block
 {
-   //instance variables
    private int speed;
 
    public Paddle()
@@ -14,7 +19,6 @@ public class Paddle extends Block
       setHeight(80);
       setColor(Color.RED);
    }
-   //add the other Paddle constructors
    public Paddle(int x, int y){
 	   super(x,y);
 	   setWidth(10);
@@ -65,12 +69,10 @@ public class Paddle extends Block
 	   draw(window);
    }
 
-   //add get methods
    public int getSpeed(){
 	   return speed;
    }
    
-   //add a toString() method
    public String toString(){
 	   String output ="";
 	   output += getX() + " " + getY() + " " + getWidth() + " " + getHeight() + " " + getColor() + " " + getSpeed();

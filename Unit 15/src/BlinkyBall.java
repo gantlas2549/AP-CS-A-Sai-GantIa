@@ -1,11 +1,18 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
+
+//unused class
 class BlinkyBall extends Ball
 {
 
-   //constructors
    public BlinkyBall()
    {
 		super();
@@ -37,7 +44,7 @@ class BlinkyBall extends Ball
 
    public Color randomColor()
    {
-   		int r = (int)(Math.random()*256);		//use Math.random()
+   		int r = (int)(Math.random()*256);		
  		int g = (int)(Math.random()*256);
  		int b = (int)(Math.random()*256);
  		return new Color(r,g,b);
