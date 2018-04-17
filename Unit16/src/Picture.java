@@ -118,6 +118,8 @@ public class Picture extends SimplePicture
     } 
   }
   
+  public void mirrorVerticalRightToLeft
+  
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -217,6 +219,39 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void keepOnlyBlue() {
+	  Pixel[][] a = this.getPixels2D();
+	  for(Pixel[] i:a) {
+		  for(Pixel y:i) {
+			  y.setBlue(0);
+			  y.setGreen(0);
+		  }
+	  }
+  }
+  
+  public void negate() {
+	  Pixel[][] a = this.getPixels2D();
+	  for(Pixel[] i:a) {
+		  for(Pixel y:i) {
+			  y.setRed(255-y.getRed());
+			  y.setGreen(255-y.getGreen());
+			  y.setBlue(255-y.getBlue());
+
+		  }
+	  }
+  }
+  
+  public void grayscale() {
+	  Pixel[][] a = this.getPixels2D();
+	  for(Pixel[] i:a) {
+		  for(Pixel y:i) {
+			  int avg = (y.getRed() + y.getGreen() + y.getBlue())/3;
+			  y.setRed(avg);
+			  y.setGreen(avg);
+			  y.setBlue(avg);
+		  }
+	  }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
