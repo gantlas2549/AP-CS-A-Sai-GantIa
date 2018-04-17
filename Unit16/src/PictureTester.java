@@ -12,7 +12,7 @@ public class PictureTester
   public static void testZeroBlue()
   {
     Picture beach = new Picture("C:\\Users\\Master Sai Gantla\\Desktop\\pixLab\\images\\beach.jpg");
-    beach.explore();
+    beach.explore();	
     beach.zeroBlue();
     beach.explore();
   }
@@ -106,6 +106,7 @@ public class PictureTester
   public static void testCollage()
   {
     Picture canvas = new Picture("C:\\Users\\Master Sai Gantla\\Desktop\\pixLab\\images\\640x480.jpg");
+    canvas.explore();
     canvas.createCollage();
     canvas.explore();
   }
@@ -114,6 +115,7 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("C:\\Users\\Master Sai Gantla\\Desktop\\pixLab\\images\\swan.jpg");
+    swan.explore();
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -131,7 +133,7 @@ public class PictureTester
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
-    //testFixUnderwater(); <--- didn't do, was extra
+    //testFixUnderwater(); <--- didn't do, optional challenge
     //testMirrorVertical();
 	//testMirrorVerticalRightToLeft();
 	//testMirrorHorizontal();
@@ -139,15 +141,15 @@ public class PictureTester
     //testMirrorTemple();
     //testMirrorArms();
       //testMirrorGull();
-    //testMirrorDiagonal();
+    //testMirrorDiagonal(); <--- didn't do, optional challenge
 	//testCollage();
     //testEdgeDetection();
-    //testEdgeDetection2();
-    //testChromakey();
-    //testEncodeAndDecode();
-    //testGetCountRedOverValue(250);
-    //testSetRedToHalfValueInTopHalf();
-    //testClearBlueOverValue(200);
-    //testGetAverageForColumn(0);
+    //testEdgeDetection2(); <--- didn't do, "work in groups"
+    //testChromakey(); <--- this isn't even in the doc
+    //testEncodeAndDecode(); <--- neither is this
+    //testGetCountRedOverValue(250); <--- neither is this
+    //testSetRedToHalfValueInTopHalf(); <--- neither is this
+    //testClearBlueOverValue(200); <--- neither is this
+    //testGetAverageForColumn(0); <--- neither is this
   }
 }

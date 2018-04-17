@@ -122,10 +122,11 @@ public class Picture extends SimplePicture
 	  Pixel[][]a = this.getPixels2D();
 	  Pixel left = null;
 	  Pixel right = null;
+	  int width = a[0].length;
 	  for (int i=0;i<a.length;i++) {
-	  for (int y=a[0].length/2;y<a.length;y++) {
-		  right = a[i][y];
-		  left = a[i][a[0].length-y-1];
+	  for (int y=0;y<width/2;y++) {
+		  left = a[i][y];
+		  right = a[i][width-y-1];
 		  left.setColor(right.getColor());
 	  }
 	  }
