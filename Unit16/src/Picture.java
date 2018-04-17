@@ -312,12 +312,29 @@ public class Picture extends SimplePicture
 	  Pixel[][] a = this.getPixels2D();
 	  for(Pixel[] i:a) {
 		  for(Pixel y:i) {
+			  y.setRed(0);
+			  y.setGreen(0);
+		  }
+	  }
+  }
+  public void keepOnlyRed() {
+	  Pixel[][] a = this.getPixels2D();
+	  for(Pixel[] i:a) {
+		  for(Pixel y:i) {
 			  y.setBlue(0);
 			  y.setGreen(0);
 		  }
 	  }
   }
-  
+  public void keepOnlyGreen() {
+	  Pixel[][] a = this.getPixels2D();
+	  for(Pixel[] i:a) {
+		  for(Pixel y:i) {
+			  y.setRed(0);
+			  y.setBlue(0);
+		  }
+	  }
+  }
   public void negate() {
 	  Pixel[][] a = this.getPixels2D();
 	  for(Pixel[] i:a) {
