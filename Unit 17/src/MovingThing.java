@@ -4,87 +4,90 @@
 //Class - 
 //Lab  -
 
-import java.awt.Color;
 import java.awt.Graphics;
 
-public abstract class MovingThing implements Moveable
-{
+public abstract class MovingThing implements Moveable {
 	private int xPos;
 	private int yPos;
 	private int width;
 	private int height;
 
-	public MovingThing()
-	{
+	public MovingThing() {
 		xPos = 10;
 		yPos = 10;
 		width = 10;
 		height = 10;
 	}
 
-	public MovingThing(int x, int y)
-	{
+	public MovingThing(int x, int y) {
 		xPos = x;
 		yPos = y;
 		width = 10;
 		height = 10;
 	}
 
-	public MovingThing(int x, int y, int w, int h)
-	{
-		//add code here
+	public MovingThing(int x, int y, int w, int h) {
+		setPos(x - w / 2, y - w / 2);
+		setWidth(w);
+		setHeight(h);
 	}
 
-	public void setPos( int x, int y)
-	{
-		//add code here
+	public boolean Collide(MovingThing mt) {
+		if (partialCollision(this.getX(), this.getY() + this.getHeight() / 2, mt))
+			return true;
+		else if (partialCollision(this.getX() + this.getWidth(), this.getY() + this.getHeight() / 2, mt))
+			return true;
+		else if (partialCollision(this.getX() + this.getWidth() / 2, this.getY(), mt))
+			return true;
+		else if (partialCollision(this.getX() + this.getWidth() / 2, this.getY() + this.getHeight(), mt))
+			return true;
+		return false;
 	}
 
-	public void setX(int x)
-	{
-		//add code here
+	private boolean partialCollision(int pointX, int pointY, MovingThing move) {
+		return pointX > move.getX() && pointX < move.getX() + move.getWidth() && pointY > move.getY() && pointY < move.getY() + move.getHeight();
 	}
 
-	public void setY(int y)
-	{
-		//add code here
+	public void setPos(int x, int y) {
+		setX(x);
+		setY(y);
 	}
 
-	public int getX()
-	{
-		return 0;   //finish this method
+	public void setX(int x) {
+		xPos = x;
 	}
 
-	public int getY()
-	{
-		return 0;  //finish this method
+	public void setY(int y) {
+		yPos = y;
 	}
 
-	public void setWidth(int w)
-	{
-		//add code here
+	public int getX() {
+		return xPos;
 	}
 
-	public void setHeight(int h)
-	{
-		//add code here
+	public int getY() {
+		return yPos;
 	}
 
-	public int getWidth()
-	{
-		return 0;  //finish this method
+	public void setWidth(int w) {
+		width = w;
 	}
 
-	public int getHeight()
-	{
-		return 0;  //finish this method
+	public void setHeight(int h) {
+		height = h;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
 	}
 
 	public abstract void move(String direction);
 	public abstract void draw(Graphics window);
-
-	public String toString()
-	{
+	public String toString() {
 		return getX() + " " + getY() + " " + getWidth() + " " + getHeight();
 	}
 }
