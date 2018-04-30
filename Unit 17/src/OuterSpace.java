@@ -12,6 +12,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
+/**
+ * @author Master Sai Gantla
+ *
+ */
 @SuppressWarnings("serial")
 public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
@@ -21,30 +25,49 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 	private AlienHorde horde;
 	private boolean[] keys;
 	private BufferedImage back;
+	private MegaAlienHorde megaHorde;
 
+	/** constructor, creates hordes and ship
+	 * 
+	 */
 	public OuterSpace() {
 		setBackground(Color.black);
-		keys = new boolean[5];
+		keys = new boolean[6];
 		ship = new Ship(400, 500, 35, 35, 2);
 		int hordeWidth = 7;
 		int hordeHeight = 4;
 		int hordeSize = hordeWidth * hordeHeight;
 		horde = new AlienHorde(hordeSize);
+		int megaHordeWidth = 2;
+		int megaHordeHeight = 1;
+		int megaHordeSize = megaHordeWidth * megaHordeHeight;
+		megaHorde = new MegaAlienHorde(megaHordeSize);
 		shots = new Bullets();
 		
-		for(int x = 8; x < StarFighter.WIDTH - 100; x += (StarFighter.WIDTH) / 8)
-			for(int y = 22; y < StarFighter.HEIGHT / 1.5; y += (StarFighter.HEIGHT / 1.5) / 4)
+		for(int x = 8; x < StarFighter.WIDTH - 100; x += (StarFighter.WIDTH) / 8) 
+			for(int y = 22; y < StarFighter.HEIGHT / 1.5; y += (StarFighter.HEIGHT / 1.5) / 4) 
 				horde.add(new Alien(x + 20, y, 25, 25, 1));
+		
+//		for(int x = 16; x < StarFighter.WIDTH - 100; x += (StarFighter.WIDTH) / 8) 
+//				megaHorde.add(new MegaAlien(x + 20, 200, 50, 50, 2));	
+		megaHorde.add(new MegaAlien(50, 200, 50, 50, 2));	
+		megaHorde.add(new MegaAlien(300, 200, 50, 50, 2));	
 
 		this.addKeyListener(this);
 		new Thread(this).start();
-		setVisible(true);
+		setVisible(true); 
 	}
 
+	/** updates window
+	 * @param w is graphics window
+	 */
 	public void update(Graphics w) {
 		paint(w);
 	}
 
+	/** paints everything onto the graphics window
+	 * @param w is graphics window
+	 */
 	public void paint(Graphics w) {
 		Graphics2D twoDGraph = (Graphics2D) w;
 		
@@ -76,16 +99,30 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 				counter = 0;
 			}
 		}
+		if (keys[5] == true) {
+			horde.killEverything();
+		}
 
 		horde.moveEmAll();
+//		megaHorde.moveEmAll();
 		shots.moveEmAll();
+//		megaHorde.removeDeadOnes(shots.getList());
 		horde.removeDeadOnes(shots.getList());
 		shots.cleanEmUp();
 		horde.checkShipDeath(ship);
+//		megaHorde.checkShipDeath(ship);
 		
 		if (horde.getSize() == 0) {
-			System.out.println("W");
-			System.exit(0);
+			megaHorde.moveEmAll();
+			shots.moveEmAll(); 
+			megaHorde.removeDeadOnes(shots.getList());
+			shots.cleanEmUp();
+			megaHorde.checkShipDeath(ship);
+			megaHorde.drawEmAll(graphToBack);
+			if (megaHorde.getSize() == 0) {
+				System.out.println("W");
+				System.exit(0);
+			}
 		}
 		
 		graphToBack.setColor(Color.WHITE);
@@ -96,6 +133,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
+	/** causes action as a result of key being pressed
+	 * @param e is if key is pressed
+	 */
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			keys[0] = true;
@@ -112,8 +152,14 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) { 
 			keys[4] = true;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_K) { 
+			keys[5] = true;
+		}
 	}
 
+	/** stops action as a result of key being released
+	 * @param e is if key is released
+	 */
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			keys[0] = false;
@@ -130,11 +176,20 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			keys[4] = false;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_K) {
+			keys[5] = false;
+		}
 	}
 
+	/**
+	 * @param e key is used to type
+	 */
 	public void keyTyped(KeyEvent e) {
 	}
 
+	/** runs outerspace
+	 * 
+	 */
 	public void run() {
 		try {
 			while (true) {

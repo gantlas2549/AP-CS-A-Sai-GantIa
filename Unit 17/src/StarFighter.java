@@ -2,7 +2,7 @@
 //Name -
 //Date - 
 //Class -
-//Lab  -
+//Lab-
 
 import javax.swing.JFrame;
 import java.awt.Component;

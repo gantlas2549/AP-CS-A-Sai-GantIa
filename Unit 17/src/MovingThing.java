@@ -38,15 +38,18 @@ public abstract class MovingThing implements Moveable {
 		else if (partialCollision(this.getX() + this.getWidth(), this.getY() + this.getHeight() / 2, mt))
 			return true;
 		else if (partialCollision(this.getX() + this.getWidth() / 2, this.getY(), mt))
-			return true;
+			 return true;
 		else if (partialCollision(this.getX() + this.getWidth() / 2, this.getY() + this.getHeight(), mt))
 			return true;
 		return false;
 	}
 
+
 	private boolean partialCollision(int pointX, int pointY, MovingThing move) {
 		return pointX > move.getX() && pointX < move.getX() + move.getWidth() && pointY > move.getY() && pointY < move.getY() + move.getHeight();
 	}
+
+	
 
 	public void setPos(int x, int y) {
 		setX(x);
@@ -72,18 +75,26 @@ public abstract class MovingThing implements Moveable {
 	public void setWidth(int w) {
 		width = w;
 	}
+	
+
 
 	public void setHeight(int h) {
 		height = h;
 	}
+	
+
 
 	public int getWidth() {
 		return width;
 	}
+	
+
 
 	public int getHeight() {
 		return height;
 	}
+	
+
 
 	public abstract void move(String direction);
 	public abstract void draw(Graphics window);

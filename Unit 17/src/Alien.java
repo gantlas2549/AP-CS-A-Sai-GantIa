@@ -23,8 +23,8 @@ public class Alien extends MovingThing {
 	}
 
 	public Alien(int x, int y, int s) {
-super(x,y);
-speed = s;
+		super(x,y);
+		speed = s;
 
 	}
 
