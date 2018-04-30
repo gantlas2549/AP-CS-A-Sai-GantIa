@@ -17,7 +17,7 @@ public class MegaAlienHorde {
 	private int size;
 	private int counter;
 
-	/** constructor with s parameter
+	/** Constructs horde of size s
 	 * @param s is size
 	 */
 	public MegaAlienHorde(int s) {
@@ -25,14 +25,14 @@ public class MegaAlienHorde {
 		size = s;
 	}
 
-	/** adds aliens to horde
+	/** Adds aliens to horde
 	 * @param alien is individual alien
 	 */
 	public void add(MegaAlien alien) {
 		aliens.add(alien);
 	}
 
-	/** draws aliens
+	/** Draws aliens in window
 	 * @param window is the graphics window
 	 */
 	public void drawEmAll(Graphics window) {
@@ -40,32 +40,36 @@ public class MegaAlienHorde {
 			alien.draw(window);
 	}
 	
-	/** moves all of the aliens in the horde
+	/** Moves all of the aliens in the horde
 	 * 
 	 */
 	public void moveEmAll() {
 		counter++; 
 		for (MegaAlien alien : aliens) {
-			if (counter <= 220)
-				alien.move("RIGHT");
-			else if (counter <= 300)
-				alien.move("DOWN");
-			else if (counter <= 520)
-				alien.move("LEFT");
-			else if (counter <= 600)
-				alien.move("UP");
-			else if (counter <= 750)
-				counter = 0;
+			if (counter <= 180) {
+				alien.setSpeed(2);
+				alien.move("RIGHT"); }
+			else if (counter <= 250) {
+				alien.setSpeed(4);
+				alien.move("DOWN"); }
+			else if (counter <= 400 ) {
+				alien.setSpeed(2);
+				alien.move("LEFT"); }
+			else if (counter <= 500) {
+				alien.setSpeed(3);
+				alien.move("UP"); }
+			else if (counter <= 640) {
+				counter = 0; }
 		}
 	}
 
-	/** removes all the dead aliens
+	/** Removes all the dead aliens, as specified by the shots made
 	 * @param shots is the shots taken
 	 */
 	public void removeDeadOnes(List<Ammo> shots) {
 		for (int i = 0; i < shots.size(); i++)
 			for (int j = 0; j < aliens.size(); j++)
-				try { 
+				try {
 					if (shots.get(i).Collide(aliens.get(j))) {
 						shots.remove(i);
 						aliens.remove(j);
@@ -76,7 +80,7 @@ public class MegaAlienHorde {
 				}
 	}
 
-	/** checks to see if ship has been killed
+	/** Checks to see if ship has been killed
 	 * @param ship is the ship
 	 */
 	public void checkShipDeath(Ship ship) {
@@ -87,8 +91,8 @@ public class MegaAlienHorde {
 			}
 	}
 
-	/** gets size of horde
-	 * @return
+	/** Gets size of horde
+	 * @return size of horde
 	 */
 	public int getSize() {
 		return size;

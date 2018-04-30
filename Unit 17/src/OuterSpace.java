@@ -27,10 +27,11 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 	private BufferedImage back;
 	private MegaAlienHorde megaHorde;
 
-	/** constructor, creates hordes and ship
+	/** Constructs hordes and ship
 	 * 
 	 */
 	public OuterSpace() {
+		System.out.println("PRESS 'K' or manually kill all of the aliens to see extension!");
 		setBackground(Color.black);
 		keys = new boolean[6];
 		ship = new Ship(400, 500, 35, 35, 2);
@@ -50,22 +51,22 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		
 //		for(int x = 16; x < StarFighter.WIDTH - 100; x += (StarFighter.WIDTH) / 8) 
 //				megaHorde.add(new MegaAlien(x + 20, 200, 50, 50, 2));	
-		megaHorde.add(new MegaAlien(50, 200, 50, 50, 2));	
-		megaHorde.add(new MegaAlien(300, 200, 50, 50, 2));	
+		megaHorde.add(new MegaAlien(50, 200, 75, 75, 2));	
+		megaHorde.add(new MegaAlien(300, 200, 75, 75, 2));	
 
 		this.addKeyListener(this);
 		new Thread(this).start();
 		setVisible(true); 
 	}
 
-	/** updates window
+	/** Updates window
 	 * @param w is graphics window
 	 */
 	public void update(Graphics w) {
 		paint(w);
 	}
 
-	/** paints everything onto the graphics window
+	/** Creates visual representations of everything in the graphics window
 	 * @param w is graphics window
 	 */
 	public void paint(Graphics w) {
@@ -133,7 +134,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
-	/** causes action as a result of key being pressed
+	/** Causes action as a result of key being pressed
 	 * @param e is if key is pressed
 	 */
 	public void keyPressed(KeyEvent e) {
@@ -157,7 +158,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		}
 	}
 
-	/** stops action as a result of key being released
+	/** Stops action as a result of key being released
 	 * @param e is if key is released
 	 */
 	public void keyReleased(KeyEvent e) {
@@ -187,7 +188,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 	public void keyTyped(KeyEvent e) {
 	}
 
-	/** runs outerspace
+	/** runs Outerspace
 	 * 
 	 */
 	public void run() {

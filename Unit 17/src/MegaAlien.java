@@ -13,14 +13,14 @@ public class MegaAlien extends MovingThing {
 	private Image image;
 	
 	
-	/** constructor
+	/** Constructs MegaAlien
 	 * 
 	 */
 	public MegaAlien() {
 		this(0, 0, 100, 100, 0);
 	}
 	
-	/** constructor taking in x,y parameters
+	/** Constructs MegaAlien at x,y
 	 * @param x is x coordinate
 	 * @param y is y coordinate
 	 */
@@ -28,10 +28,10 @@ public class MegaAlien extends MovingThing {
 		super(x,y);
 	}
 
-	/** constructor taking in x,y,s parameters
+	/** Constructs MegaAlien at x,y with size s
 	 * @param x is x  coordinate
 	 * @param y is y coordinate
-	 * @param s is s coordinate
+	 * @param s is size
 	 */
 	public MegaAlien(int x, int y, int s) {
 		super(x,y);
@@ -39,7 +39,7 @@ public class MegaAlien extends MovingThing {
 
 	}
 
-	/** constructor taking in x,y,w,h,s parameters
+	/** Constructs MegaAlien at x,y with width w, height h, and size s
 	 * @param x is x coordinate
 	 * @param y is y coordinate
 	 * @param w is width
